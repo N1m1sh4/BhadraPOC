@@ -79,7 +79,6 @@ class OktaOpenIdConnect(OktaOAuth2, OpenIdConnectAuth):
 
         for key in self.get_jwks_keys():
             try:
-                jwt.decode(id_token, key, audience=client_id, access_token=access_token)
                 k = key
                 break
             except ExpiredSignatureError:
